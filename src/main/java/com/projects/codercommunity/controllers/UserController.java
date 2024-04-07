@@ -10,20 +10,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.projects.codercommunity.objects.User;
 import com.projects.codercommunity.services.UserService;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin
 public class UserController {
 
 	@Autowired
 	UserService userService;
 
-	@GetMapping("/login")
+	@PostMapping("/login")
 	public ResponseEntity<User> login(@RequestBody Map<String, String> payload) {
 		User user = userService.login(payload);
-		
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 
 	}

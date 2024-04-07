@@ -27,6 +27,11 @@ public class User {
 	public String getUsername() {
 		return username;
 	}
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", password=" + password + ", email=" + email + ", verification_code="
+				+ verification_code + "]";
+	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
