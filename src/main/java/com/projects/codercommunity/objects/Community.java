@@ -1,5 +1,7 @@
 package com.projects.codercommunity.objects;
 
+import java.util.List;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -13,9 +15,33 @@ import lombok.NoArgsConstructor;
 public class Community {
 	private String name;
 	private String description;
-	private String[] members;
-	private Chat[] chats;
-	private Post[] posts;
+	private List<String> members;
+	private List<Chat> chats;
+	private List<Post> posts;
+
+	public List<String> getMembers() {
+		return this.members;
+	}
+
+	public void setMembers(List<String> members) {
+		this.members = members;
+	}
+
+	public List<Chat> getChats() {
+		return this.chats;
+	}
+
+	public void setChats(List<Chat> chats) {
+		this.chats = chats;
+	}
+
+	public List<Post> getPosts() {
+		return this.posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
 	public String getName() {
 		return name;
 	}
@@ -28,23 +54,6 @@ public class Community {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String[] getMembers() {
-		return members;
-	}
-	public void setMembers(String[] members) {
-		this.members = members;
-	}
-	public Chat[] getChats() {
-		return chats;
-	}
-	public void setChats(Chat[] chats) {
-		this.chats = chats;
-	}
-	public Post[] getPosts() {
-		return posts;
-	}
-	public void setPosts(Post[] posts) {
-		this.posts = posts;
-	}
+	
 	
 }

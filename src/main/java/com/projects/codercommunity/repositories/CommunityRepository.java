@@ -8,5 +8,5 @@ import com.projects.codercommunity.objects.Community;
 
 @Repository
 public interface CommunityRepository extends MongoRepository<Community,ObjectId >{
-
+    public Community findCommunityByName(String name);
 }

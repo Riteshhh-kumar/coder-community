@@ -19,7 +19,6 @@ public class UserService {
 
 	public User login(Map<String, String> payload) {
 		User user;
-		System.out.println("Called");
 		user = userRepository.findUserByUsername(payload.get("username"));
 		if (user == null) {
 			user = userRepository.findUserByEmail(payload.get("email"));
