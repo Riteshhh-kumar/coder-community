@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CoderCommunityApplication<coder-community>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.projects.codercommunity.CoderCommunityApplication",
+            "projectName": "coder-community",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

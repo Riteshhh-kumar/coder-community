@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @RestController
-@CrossOrigin
 @RequestMapping("/posts")
+@CrossOrigin
 public class PostController {
 
 	@Autowired

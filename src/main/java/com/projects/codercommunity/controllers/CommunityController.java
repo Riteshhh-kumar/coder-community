@@ -14,8 +14,8 @@ import com.projects.codercommunity.objects.Community;
 import com.projects.codercommunity.services.CommunityService;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/community")
+@CrossOrigin
 public class CommunityController {
 
     @Autowired
