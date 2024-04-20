@@ -49,7 +49,7 @@ public class UserService {
 			userProfile.setPhone(payload.get("phone"));
 			userProfile.setBio(payload.get("bio"));
 			try {
-				userProfile.setBio(payload.get("website"));				
+				userProfile.setWebsite(payload.get("website"));				
 			}
 			catch(Exception e) {		
 			}
