@@ -24,20 +24,20 @@ public class UserController {
 	UserService userService;
 
 	@PostMapping("/login")
-	public ResponseEntity<User> login(@RequestBody Map<String, String> payload) {
-		User user = userService.login(payload);
-		return new ResponseEntity<User>(user, HttpStatus.OK);
+	public ResponseEntity<String> login(@RequestBody Map<String, String> payload) {
+		String user = userService.login(payload);
+		return new ResponseEntity<String>(user, HttpStatus.OK);
 
 	}
 	
 	@PostMapping("/register")
-	public ResponseEntity<User> register(@RequestBody Map<String,String> payload){
-		User user = userService.register(payload);
+	public ResponseEntity<String> register(@RequestBody Map<String,String> payload){
+		String user = userService.register(payload);
 		if(user!=null) {
-			return new ResponseEntity<User>(user, HttpStatus.CREATED);
+			return new ResponseEntity<String>(user, HttpStatus.CREATED);
 		}
 		else {
-			return new ResponseEntity<User>(user,HttpStatus.OK);
+			return new ResponseEntity<String>(user,HttpStatus.OK);
 		}
 	}
 }

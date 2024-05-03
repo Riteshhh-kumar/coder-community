@@ -1,5 +1,6 @@
 package com.projects.codercommunity.controllers;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.projects.codercommunity.objects.Community;
 import com.projects.codercommunity.services.CommunityService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
 
 @RestController
 @RequestMapping("/community")
@@ -21,7 +27,20 @@ public class CommunityController {
     @Autowired
     CommunityService communityService;
 
-    public ResponseEntity<Community> getCommunity(@RequestBody Map<String,String> payload){
-        return new ResponseEntity<Community>(communityService.getCommunity(payload),HttpStatus.OK);
+    @GetMapping("/{name}")    
+    public ResponseEntity<Community> getCommunity(@PathVariable String name) {
+        
+        return new ResponseEntity<Community>(communityService.getCommunity(name), HttpStatus.OK);
+    }
+
+
+    @GetMapping("/getall")    
+    public ResponseEntity<List<Community>> getAllCommunity() {
+        return new ResponseEntity<List<Community>>(communityService.getAllCommunity(), HttpStatus.OK);
+    }
+
+    @PostMapping("/join")    
+    public ResponseEntity<String> joinCommuntity(@RequestBody Map<String, String> payload) {
+        return new ResponseEntity<String>(communityService.joinCommunity(payload), HttpStatus.OK);
     }
 }

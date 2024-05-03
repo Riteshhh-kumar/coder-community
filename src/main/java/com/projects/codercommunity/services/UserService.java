@@ -1,5 +1,6 @@
 package com.projects.codercommunity.services;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class UserService {
 	@Autowired
 	UserProfileRepository userProfileRepository;
 
-	public User login(Map<String, String> payload) {
+	public String login(Map<String, String> payload) {
 		User user;
 		user = userRepository.findUserByUsername(payload.get("username"));
 		if (user == null) {
@@ -25,13 +26,13 @@ public class UserService {
 		}
 		if (user != null) {
 			if (payload.get("password").equals(user.getPassword())) {
-				return user;
+				return user.getUsername();
 			}
 		}
-		return user = null;
+		return null;
 	}
 
-	public User register(Map<String, String> payload) {
+	public String register(Map<String, String> payload) {
 		User user;
 		user = userRepository.findUserByUsername(payload.get("username"));
 		if (user == null) {
@@ -48,16 +49,19 @@ public class UserService {
 			userProfile.setEmail(payload.get("email"));
 			userProfile.setPhone(payload.get("phone"));
 			userProfile.setBio(payload.get("bio"));
+			userProfile.setCommunities(new ArrayList<>());
+			userProfile.setPosts(new ArrayList<>());
 			try {
 				userProfile.setWebsite(payload.get("website"));				
 			}
-			catch(Exception e) {		
+			catch (Exception e) {
+				userProfile.setWebsite("");
 			}
 			userProfileRepository.insert(userProfile);
 			userRepository.insert(user);
-			return user;
+			return user.getUsername();
 		}
-		return user=null;
+		return null;
 	}
 
 }

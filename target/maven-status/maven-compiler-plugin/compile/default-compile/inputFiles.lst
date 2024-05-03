@@ -5,7 +5,6 @@ C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java
 C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\repositories\TagsRepository.java
 C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\objects\Tags.java
 C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\repositories\UserProfileRepository.java
-C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\repositories\ChatRepository.java
 C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\repositories\CommentRepository.java
 C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\objects\Comment.java
 C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\services\PostService.java
@@ -17,5 +16,4 @@ C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java
 C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\controllers\PostController.java
 C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\repositories\UserRepository.java
 C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\controllers\UserController.java
-C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\objects\Chat.java
 C:\FilesFolders\Projects\Spring\final-year-project\coder-community\src\main\java\com\projects\codercommunity\services\CommunityService.java

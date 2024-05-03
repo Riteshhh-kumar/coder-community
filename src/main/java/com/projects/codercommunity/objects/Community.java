@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 public class Community {
 	private String name;
 	private String description;
+	private String logo;
 	private List<String> members;
-	private List<Chat> chats;
 	private List<Post> posts;
 
 	public List<String> getMembers() {
@@ -25,14 +25,6 @@ public class Community {
 
 	public void setMembers(List<String> members) {
 		this.members = members;
-	}
-
-	public List<Chat> getChats() {
-		return this.chats;
-	}
-
-	public void setChats(List<Chat> chats) {
-		this.chats = chats;
 	}
 
 	public List<Post> getPosts() {

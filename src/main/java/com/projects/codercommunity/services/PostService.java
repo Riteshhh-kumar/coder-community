@@ -50,21 +50,17 @@ public class PostService {
         post.setIspublic(Boolean.valueOf(payload.get("isPublic")));
         post.setTags(Arrays.asList(payload.get("tags").split(";")));
         post.setDate(LocalDateTime.now());
+        post.setComments(new ArrayList<>());
         String postId = String.valueOf(System.currentTimeMillis())
                 + String.valueOf(Long.parseLong(payload.get("username"), 32));
         post.setId(postId);
 
-        UserProfile user = userProfile.findUserByUsername(payload.get("username"));
-        List<String> posts = user.getPosts();
-        if (posts == null) {
-            posts = new ArrayList<String>();
-        }
-        posts.add(postId);
+        
         momgoTemplate.update(UserProfile.class)
                 .matching(Criteria.where("username")
                         .is(payload.get("username")))
-                .apply(new Update().push("posts")
-                        .value(posts))
+                .apply(new Update().addToSet("posts")
+                        .value(post))
                         .first();
         postRepository.insert(post);
         return post;

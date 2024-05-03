@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.projects.codercommunity.objects.Community;
 
 @Repository
-public interface CommunityRepository extends MongoRepository<Community,ObjectId >{
+public interface CommunityRepository extends MongoRepository<Community,String >{
     public Community findCommunityByName(String name);
 }
