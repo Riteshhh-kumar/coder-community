@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import com.projects.codercommunity.objects.Community;
+import com.projects.codercommunity.objects.Post;
 import com.projects.codercommunity.objects.UserProfile;
 import com.projects.codercommunity.repositories.CommunityRepository;
 import com.projects.codercommunity.repositories.UserProfileRepository;
@@ -21,11 +22,15 @@ public class CommunityService {
 
     @Autowired
     CommunityRepository communityRepository;
+
     @Autowired
     UserProfileRepository UserProfileRepository;
 
     @Autowired
     MongoTemplate mongoTemplate;
+
+    @Autowired
+    PostService postService;
 
     public Community getCommunity(String name) {
         return communityRepository.findCommunityByName(name);
@@ -51,6 +56,19 @@ public class CommunityService {
                         .is(payload.get("username")))
                 .apply(new Update().push("communities")
                         .value(payload.get("communityname")))
+                        .first();
+        return "Success";
+    }
+
+
+    public String createPost(Map<String, String> payload) {
+            Post post = postService.createPost(payload);
+                        
+        mongoTemplate.update(Community.class)
+                .matching(Criteria.where("name")
+                        .is(payload.get("communityname")))
+                .apply(new Update().push("posts")
+                        .value(post))
                         .first();
         return "Success";
     }

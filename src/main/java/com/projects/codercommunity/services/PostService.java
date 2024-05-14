@@ -36,7 +36,7 @@ public class PostService {
     UserProfileRepository userProfile;
 
     public List<Post> allPost() {
-        return postRepository.findAll();
+        return postRepository.findPostByIspublic(true);
     }
 
     public Optional<Post> postById(String Id) {
@@ -51,8 +51,8 @@ public class PostService {
         post.setTags(Arrays.asList(payload.get("tags").split(";")));
         post.setDate(LocalDateTime.now());
         post.setComments(new ArrayList<>());
-        String postId = String.valueOf(System.currentTimeMillis())
-                + String.valueOf(Long.parseLong(payload.get("username"), 32));
+        String postId = String.valueOf(Long.parseLong(payload.get("username"), 32))
+        +String.valueOf(System.currentTimeMillis());
         post.setId(postId);
 
         
@@ -63,6 +63,7 @@ public class PostService {
                         .value(post))
                         .first();
         postRepository.insert(post);
+        
         return post;
     }
     

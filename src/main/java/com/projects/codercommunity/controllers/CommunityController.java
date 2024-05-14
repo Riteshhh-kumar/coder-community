@@ -43,4 +43,9 @@ public class CommunityController {
     public ResponseEntity<String> joinCommuntity(@RequestBody Map<String, String> payload) {
         return new ResponseEntity<String>(communityService.joinCommunity(payload), HttpStatus.OK);
     }
+
+    @PostMapping("/posts/create")    
+    public ResponseEntity<String> createPost(@RequestBody Map<String, String> payload) {
+        return new ResponseEntity<String>(communityService.createPost(payload), HttpStatus.OK);
+    }
 }
